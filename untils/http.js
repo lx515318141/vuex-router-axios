@@ -47,10 +47,10 @@ instance.interceptors.request.use(function(config){
         config.data = qs.stringify(config.data)
     }
     // 获取vuex中的token
-    // const token = store.state.loginModule.token
-    // if(token){
-    //     config.headers.Authorization = token
-    // }
+    const token = store.state.loginModule.token
+    if(token){
+        config.headers.Authorization = token
+    }
     return config;
 },function(error){
     return Promise.reject(error)
